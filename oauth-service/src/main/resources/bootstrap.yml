@@ -1,0 +1,31 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  application:
+    name: oauth-service
+  datasource:
+    username: root
+    password: orcl
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mytest1
+    schema: classpath:ddl.sql
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+  zipkin:
+    base-url: http://localhost:2005
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+server:
+  port: 2006
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2000/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html  # ${server.port}为该服务的端口号

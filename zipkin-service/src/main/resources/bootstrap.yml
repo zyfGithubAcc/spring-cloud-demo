@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: zipkin-service
+
+server:
+  port: 2005
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2000/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html  # ${server.port}为该服务的端口号
+
+
+

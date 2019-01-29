@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          #git 仓库的地址
+          uri: https://github.com/qq1028951741/Spring-Cloud-Config.git
+
+server:
+  port: 2004
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2000/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html  # ${server.port}为该服务的端口号
+

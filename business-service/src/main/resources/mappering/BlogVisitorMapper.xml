@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fufu.mapper.BlogVisitorMapper">
+  <resultMap id="BaseResultMap" type="com.fufu.entity.BlogVisitor">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="visitor_name" jdbcType="VARCHAR" property="visitorName" />
+    <result column="visitor_gender" jdbcType="VARCHAR" property="visitorGender" />
+    <result column="visitor_reason" jdbcType="VARCHAR" property="visitorReason" />
+    <result column="visit_time" jdbcType="TIMESTAMP" property="visitTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, visitor_name, visitor_gender, visitor_reason, visit_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_visitor
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from blog_visitor
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.fufu.entity.BlogVisitor">
+    insert into blog_visitor (id, visitor_name, visitor_gender, 
+      visitor_reason, visit_time)
+    values (#{id,jdbcType=BIGINT}, #{visitorName,jdbcType=VARCHAR}, #{visitorGender,jdbcType=VARCHAR}, 
+      #{visitorReason,jdbcType=VARCHAR}, #{visitTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fufu.entity.BlogVisitor">
+    insert into blog_visitor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="visitorName != null">
+        visitor_name,
+      </if>
+      <if test="visitorGender != null">
+        visitor_gender,
+      </if>
+      <if test="visitorReason != null">
+        visitor_reason,
+      </if>
+      <if test="visitTime != null">
+        visit_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="visitorName != null">
+        #{visitorName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorGender != null">
+        #{visitorGender,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorReason != null">
+        #{visitorReason,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null">
+        #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fufu.entity.BlogVisitor">
+    update blog_visitor
+    <set>
+      <if test="visitorName != null">
+        visitor_name = #{visitorName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorGender != null">
+        visitor_gender = #{visitorGender,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorReason != null">
+        visitor_reason = #{visitorReason,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null">
+        visit_time = #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fufu.entity.BlogVisitor">
+    update blog_visitor
+    set visitor_name = #{visitorName,jdbcType=VARCHAR},
+      visitor_gender = #{visitorGender,jdbcType=VARCHAR},
+      visitor_reason = #{visitorReason,jdbcType=VARCHAR},
+      visit_time = #{visitTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

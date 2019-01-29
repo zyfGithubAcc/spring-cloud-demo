@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: business-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mytest1?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: orcl
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    config:
+      profile: dev
+      label: master
+      uri: http://localhost:2004/ #指向config-service
+#      discovery:
+#        enabled: true
+#        service-id: config-service
+  zipkin:
+    base-url: http://localhost:2005
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+server:
+  port: 2002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2000/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html  # ${server.port}为该服务的端口号
+feign:
+  hystrix:
+    enabled: true
+
+#是否需要权限拉去，默认是true,如果不false就不允许你去拉取配置中心Server更新的内容
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
