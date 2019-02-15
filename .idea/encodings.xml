@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-module" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/file-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/oauth-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zipkin-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-resource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-resource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-resource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zipkin-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zuul-service" charset="UTF-8" />
   </component>

@@ -15,11 +15,11 @@ import java.io.*;
 
 @RefreshScope
 @RestController
-@RequestMapping("/file")
+    @RequestMapping("/file")
 public class FileController {
 
-    @Value("${test}")
-    private String test;
+//    @Value("${test}")
+//    private String test;
 
     @Autowired FileService fileService;
 
@@ -56,6 +56,6 @@ public class FileController {
 
     @GetMapping("/test")
     public String test(){
-        return test;
+        return "test";
     }
 }

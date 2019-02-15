@@ -1,0 +1,28 @@
+server:
+  port: 2006
+
+spring:
+  application:
+    name: oauth-server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mytest1?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: ENC(UrE607fsJqJoGgZe1AcfvQ==)
+    password: ENC(gh5zT/cjALMv/rbP1N34jA==)
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 0
+    host: 127.0.0.1
+    password:
+    timeout: 8000
+    port: 6379
+
+jasypt:
+  encryptor:
+    password: 123456
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2000/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}/swagger-ui.html  # ${server.port}为该服务的端口号

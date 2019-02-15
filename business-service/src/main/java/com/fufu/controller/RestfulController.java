@@ -4,6 +4,9 @@ import com.fufu.entity.BlogVisitor;
 import com.fufu.service.RestfulService;
 import com.fufu.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,4 +67,16 @@ public class RestfulController {
         return Result.ok("查询访问者成功!").put("data",resultList);
     }
 
+
+//    @GetMapping("/user")
+//    @Secured("ROLE_USER")
+//    public Authentication getUser() {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        return authentication;
+//    }
+//
+//    @GetMapping("/index")
+//    public String index() {
+//        return "index";
+//    }
 }
